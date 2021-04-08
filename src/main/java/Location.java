@@ -16,7 +16,7 @@ public class Location {
     this.grid = grid;
   }
 
-  public void translate(Direction direction) {
+  public void forward(Direction direction) {
     switch (direction) {
       case SOUTH:
         y.incr();

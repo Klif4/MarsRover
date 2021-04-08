@@ -8,11 +8,11 @@ public class MarsRover {
     this.direction = direction;
   }
 
-  public void move(String command) {
-    location.translate(direction);
-  }
-
   public Location location() {
     return location;
+  }
+
+  public void move(Command command) {
+    location.forward(direction);
   }
 }

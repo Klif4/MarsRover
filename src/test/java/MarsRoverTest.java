@@ -10,7 +10,7 @@ class MarsRoverTest {
     MarsRover marsRover = new MarsRover(new Location(0, 0, new Grid(100, 100)), Direction.SOUTH);
 
     // When
-    marsRover.move("f");
+    marsRover.move(Command.FORWARD);
 
     // Then
     Location expected = new Location(0, 1, new Grid(100, 100));
@@ -23,7 +23,7 @@ class MarsRoverTest {
     MarsRover marsRover = new MarsRover(new Location(0, 0, new Grid(100, 100)), Direction.EAST);
 
     // When
-    marsRover.move("f");
+    marsRover.move(Command.FORWARD);
 
     // Then
     Location expected = new Location(1, 0, new Grid(100, 100));
