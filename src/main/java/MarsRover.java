@@ -13,6 +13,6 @@ public class MarsRover {
   }
 
   public void move(Command command) {
-    location.forward(direction);
+    direction.forwardLocation(location);
   }
 }

@@ -16,22 +16,19 @@ public class Location {
     this.grid = grid;
   }
 
-  public void forward(Direction direction) {
-    switch (direction) {
-      case SOUTH:
-        y.incr();
-        break;
-      case EAST:
-        x.incr();
-        break;
-      case NORTH:
-        y.decr();
-        break;
-      case WEST:
-        x.decr();
-        break;
-      default:
-        break;
-    }
+  public void incrX() {
+    x.incr();
+  }
+
+  public void decrY() {
+    y.decr();
+  }
+
+  public  void decrX() {
+    x.decr();
+  }
+
+  public void incrY() {
+    y.incr();
   }
 }
