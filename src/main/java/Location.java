@@ -16,19 +16,23 @@ public class Location {
     this.grid = grid;
   }
 
-  public void incrX() {
+  public Location incrX() {
     x.incr();
+    return this;
   }
 
-  public void decrY() {
+  public Location decrY() {
     y.decr();
+    return this;
   }
 
-  public  void decrX() {
+  public  Location decrX() {
     x.decr();
+    return this;
   }
 
-  public void incrY() {
+  public Location incrY() {
     y.incr();
+    return this;
   }
 }

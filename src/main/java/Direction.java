@@ -10,11 +10,11 @@ public enum Direction {
     this.locationForwarding = test;
   }
 
-  public void forwardLocation(Location location) {
-    locationForwarding.handle(location);
+  public Location forwardLocation(Location location) {
+    return locationForwarding.handle(location);
   }
 
   interface LocationForwarding {
-    void handle(Location location);
+    Location handle(Location location);
   }
 }

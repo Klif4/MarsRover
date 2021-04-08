@@ -1,6 +1,6 @@
 public class MarsRover {
 
-  private final Location location;
+  private Location location;
   private final Direction direction;
 
   public MarsRover(Location location, Direction direction) {
@@ -13,6 +13,6 @@ public class MarsRover {
   }
 
   public void move(Command command) {
-    direction.forwardLocation(location);
+    location = direction.forwardLocation(location);
   }
 }
