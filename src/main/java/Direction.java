@@ -4,17 +4,17 @@ public enum Direction {
   WEST(Location::decrX),
   SOUTH(Location::incrY);
 
-  private final LocationTranslation locationTranslation;
+  private final LocationForwarding locationForwarding;
 
-  Direction(LocationTranslation test) {
-    this.locationTranslation = test;
+  Direction(LocationForwarding test) {
+    this.locationForwarding = test;
   }
 
   public void forwardLocation(Location location) {
-    locationTranslation.forward(location);
+    locationForwarding.handle(location);
   }
 
-  interface LocationTranslation {
-    void forward(Location location);
+  interface LocationForwarding {
+    void handle(Location location);
   }
 }
