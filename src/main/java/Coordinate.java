@@ -1,24 +1,24 @@
+import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
 @EqualsAndHashCode
 @ToString
+@AllArgsConstructor
 public class Coordinate {
 
-  private int value;
+  private final int value;
   private final int maxValue;
 
-  public Coordinate(int value, int maxValue) {
-    this.value = value;
-    this.maxValue = maxValue;
+  public Coordinate incr() {
+    return value == maxValue ? new Coordinate(value, maxValue) : new Coordinate(value + 1, maxValue);
   }
 
-
-  public void incr() {
-    value = value == maxValue ? value : value + 1;
+  public Coordinate decr() {
+    return value == 0 ? new Coordinate(value, maxValue) : new Coordinate(value - 1, maxValue);
   }
 
-  public void decr() {
-    value = value == 0 ? value : value -1;
+  public int value() {
+    return value;
   }
 }

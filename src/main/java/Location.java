@@ -10,29 +10,24 @@ public class Location {
   private final Grid grid;
 
   public Location(int x, int y, Grid grid) {
-
     this.x = new Coordinate(x, grid.x());
     this.y = new Coordinate(y, grid.y());
     this.grid = grid;
   }
 
   public Location incrX() {
-    x.incr();
-    return this;
+    return new Location(x.incr().value(), y.value(), grid);
   }
 
   public Location decrY() {
-    y.decr();
-    return this;
+    return new Location(x.value(), y.decr().value(), grid);
   }
 
   public  Location decrX() {
-    x.decr();
-    return this;
+    return new Location(x.decr().value(), y.value(), grid);
   }
 
   public Location incrY() {
-    y.incr();
-    return this;
+    return new Location(x.value(), y.incr().value(), grid);
   }
 }
