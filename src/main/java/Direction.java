@@ -4,10 +4,10 @@ public enum Direction {
   WEST(Location::decrX, Location::incrX),
   SOUTH(Location::incrY, Location::decrY);
 
-  private final LocationForwarding locationForwarding;
-  private final LocationBackwarding locationBackwarding;
+  private final LocationTranslation locationForwarding;
+  private final LocationTranslation locationBackwarding;
 
-  Direction(LocationForwarding locationForwarding, LocationBackwarding locationBackwarding) {
+  Direction(LocationTranslation locationForwarding, LocationTranslation locationBackwarding) {
     this.locationForwarding = locationForwarding;
     this.locationBackwarding = locationBackwarding;
   }
@@ -21,11 +21,14 @@ public enum Direction {
     return locationBackwarding.handle(location);
   }
 
-  interface LocationForwarding {
+  public Direction toLeft() {
+    Direction[] directions = values();
+    return directions[(ordinal() -1 + directions.length) % directions.length];
+  }
+
+  @FunctionalInterface
+  interface LocationTranslation {
     Location handle(Location location);
   }
 
-  interface LocationBackwarding {
-    Location handle(Location location);
-  }
 }

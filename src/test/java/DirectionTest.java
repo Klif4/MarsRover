@@ -59,4 +59,24 @@ class DirectionTest {
     Location expected = Direction.WEST.forwardLocation(location);
     assertThat(expected).isEqualTo(new Location(0, 0, new Grid(100, 100)));
   }
+
+  @Test
+  void EAST_toLeft_should_return_SOUTH() {
+    assertThat(Direction.EAST.toLeft()).isEqualTo(Direction.SOUTH);
+  }
+
+  @Test
+  void SOUTH_toLeft_should_return_WEST() {
+    assertThat(Direction.SOUTH.toLeft()).isEqualTo(Direction.WEST);
+  }
+
+  @Test
+  void WEST_toLeft_should_return_NORTH() {
+    assertThat(Direction.WEST.toLeft()).isEqualTo(Direction.NORTH);
+  }
+
+  @Test
+  void NORTH_toLeft_should_return_EAST() {
+    assertThat(Direction.NORTH.toLeft()).isEqualTo(Direction.EAST);
+  }
 }
