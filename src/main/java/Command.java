@@ -11,10 +11,9 @@ public enum Command {
   private final String code;
   private final Moving moving;
 
-  Command(String code, Moving test) {
-
+  Command(String code, Moving moving) {
     this.code = code;
-    this.moving = test;
+    this.moving = moving;
   }
 
   public static Command getByCode(String code) {

@@ -9,7 +9,6 @@ public class Coordinate {
   private final int maxValue;
 
   public Coordinate(int value, int maxValue) {
-
     this.value = value;
     this.maxValue = maxValue;
   }

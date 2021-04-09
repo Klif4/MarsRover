@@ -12,7 +12,6 @@ public enum Direction {
     this.locationBackwarding = locationBackwarding;
   }
 
-
   public Location forwardLocation(Location location) {
     return locationForwarding.handle(location);
   }
@@ -33,7 +32,6 @@ public enum Direction {
 
   @FunctionalInterface
   interface LocationTranslation {
-
     Location handle(Location location);
   }
 
