@@ -5,7 +5,8 @@ import lombok.EqualsAndHashCode;
 public enum Command {
   FORWARD("f", MovingFunctions.forward),
   BACKWARD("b", MovingFunctions.backward),
-  LEFT("l", MovingFunctions.left);
+  LEFT("l", MovingFunctions.left),
+  RIGHT("r", MovingFunctions.right);
 
   private final String code;
   private final Moving moving;
@@ -37,19 +38,12 @@ public enum Command {
   public static class CommandResponse {
     public Direction direction;
     public Location location;
-
-    public Direction direction() {
-      return direction;
-    }
-
-    public Location location() {
-      return location;
-    }
   }
 
   private static class MovingFunctions {
     private static final Moving forward = ((direction, location) -> new CommandResponse(direction, direction.forwardLocation(location)));
     private static final Moving backward = ((direction, location) -> new CommandResponse(direction, direction.backwardLocation(location)));
-    private static final Moving left = ((direction, location) -> new CommandResponse(direction.toLeft(), location));
+    private static final Moving left = ((direction, location) -> new CommandResponse(direction.turnLeft(), location));
+    private static final Moving right = ((direction, location) -> new CommandResponse(direction.turnRight(), location));
   }
 }

@@ -59,13 +59,26 @@ class MarsRoverTest {
   @Test
   void turn_left() {
     // Given
-    MarsRover marsRover = new MarsRover(new Location(0, 0, new Grid(100, 100)), Direction.EAST);
+    MarsRover marsRover = new MarsRover(new Location(0, 0, new Grid(100, 100)), Direction.SOUTH);
 
     // When
     marsRover.move("lf");
 
     // Then
-    Location expected = new Location(0, 1, new Grid(100, 100));
+    Location expected = new Location(1, 0, new Grid(100, 100));
+    assertThat(marsRover.location()).isEqualTo(expected);
+  }
+
+  @Test
+  void turn_right() {
+    // Given
+    MarsRover marsRover = new MarsRover(new Location(0, 0, new Grid(100, 100)), Direction.NORTH);
+
+    // When
+    marsRover.move("rf");
+
+    // Then
+    Location expected = new Location(1, 0, new Grid(100, 100));
     assertThat(marsRover.location()).isEqualTo(expected);
   }
 }

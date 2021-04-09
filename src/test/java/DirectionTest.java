@@ -61,22 +61,42 @@ class DirectionTest {
   }
 
   @Test
-  void EAST_toLeft_should_return_SOUTH() {
-    assertThat(Direction.EAST.toLeft()).isEqualTo(Direction.SOUTH);
+  void EAST_turnLeft_should_return_NORTH() {
+    assertThat(Direction.EAST.turnLeft()).isEqualTo(Direction.NORTH);
   }
 
   @Test
-  void SOUTH_toLeft_should_return_WEST() {
-    assertThat(Direction.SOUTH.toLeft()).isEqualTo(Direction.WEST);
+  void SOUTH_turnLeft_should_return_EAST() {
+    assertThat(Direction.SOUTH.turnLeft()).isEqualTo(Direction.EAST);
   }
 
   @Test
-  void WEST_toLeft_should_return_NORTH() {
-    assertThat(Direction.WEST.toLeft()).isEqualTo(Direction.NORTH);
+  void WEST_turnLeft_should_return_SOUTH() {
+    assertThat(Direction.WEST.turnLeft()).isEqualTo(Direction.SOUTH);
   }
 
   @Test
-  void NORTH_toLeft_should_return_EAST() {
-    assertThat(Direction.NORTH.toLeft()).isEqualTo(Direction.EAST);
+  void NORTH_turnLeft_should_return_WEST() {
+    assertThat(Direction.NORTH.turnLeft()).isEqualTo(Direction.WEST);
+  }
+
+  @Test
+  void EAST_turnRight_should_return_SOUTH() {
+    assertThat(Direction.EAST.turnRight()).isEqualTo(Direction.SOUTH);
+  }
+
+  @Test
+  void NORTH_turnRight_should_return_EAST() {
+    assertThat(Direction.NORTH.turnRight()).isEqualTo(Direction.EAST);
+  }
+
+  @Test
+  void WEST_turnRight_should_return_NORTH() {
+    assertThat(Direction.WEST.turnRight()).isEqualTo(Direction.NORTH);
+  }
+
+  @Test
+  void SOUTH_turnRight_should_return_WEST() {
+    assertThat(Direction.SOUTH.turnRight()).isEqualTo(Direction.WEST);
   }
 }

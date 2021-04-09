@@ -22,7 +22,7 @@ public class MarsRover {
 
   public void handleMove(Command command) {
     Command.CommandResponse commandResponse = command.execute(direction, location);
-    direction = commandResponse.direction();
-    location = commandResponse.location();
+    direction = commandResponse.direction;
+    location = commandResponse.location;
   }
 }

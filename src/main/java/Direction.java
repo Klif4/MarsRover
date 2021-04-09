@@ -21,13 +21,19 @@ public enum Direction {
     return locationBackwarding.handle(location);
   }
 
-  public Direction toLeft() {
+  public Direction turnLeft() {
     Direction[] directions = values();
-    return directions[(ordinal() -1 + directions.length) % directions.length];
+    return directions[(ordinal() + 1) % directions.length];
+  }
+
+  public Direction turnRight() {
+    Direction[] directions = values();
+    return directions[(ordinal() - 1 + directions.length) % directions.length];
   }
 
   @FunctionalInterface
   interface LocationTranslation {
+
     Location handle(Location location);
   }
 
