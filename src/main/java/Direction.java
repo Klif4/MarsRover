@@ -1,23 +1,25 @@
+import java.util.function.Function;
+
 public enum Direction {
   EAST(Location::incrX, Location::decrX),
   NORTH(Location::decrY, Location::incrY),
   WEST(Location::decrX, Location::incrX),
   SOUTH(Location::incrY, Location::decrY);
 
-  private final LocationTranslation locationForwarding;
-  private final LocationTranslation locationBackwarding;
+  private final Function<Location, Location> locationForwarding;
+  private final Function<Location, Location> locationBackwarding;
 
-  Direction(LocationTranslation locationForwarding, LocationTranslation locationBackwarding) {
+  Direction(Function<Location, Location> locationForwarding, Function<Location, Location> locationBackwarding) {
     this.locationForwarding = locationForwarding;
     this.locationBackwarding = locationBackwarding;
   }
 
-  public Location forwardLocation(Location location) {
-    return locationForwarding.handle(location);
+  public Function<Location, Location> forward() {
+    return locationForwarding;
   }
 
-  public Location backwardLocation(Location location) {
-    return locationBackwarding.handle(location);
+  public Function<Location, Location> backward() {
+    return locationBackwarding;
   }
 
   public Direction turnLeft() {
@@ -28,11 +30,6 @@ public enum Direction {
   public Direction turnRight() {
     Direction[] directions = values();
     return directions[(ordinal() - 1 + directions.length) % directions.length];
-  }
-
-  @FunctionalInterface
-  interface LocationTranslation {
-    Location handle(Location location);
   }
 
 }

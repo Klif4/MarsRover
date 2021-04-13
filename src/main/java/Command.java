@@ -40,8 +40,8 @@ public enum Command {
   }
 
   private static class MovingFunctions {
-    private static final Moving forward = ((direction, location) -> new CommandResponse(direction, direction.forwardLocation(location)));
-    private static final Moving backward = ((direction, location) -> new CommandResponse(direction, direction.backwardLocation(location)));
+    private static final Moving forward = ((direction, location) -> new CommandResponse(direction, direction.forward().apply(location)));
+    private static final Moving backward = ((direction, location) -> new CommandResponse(direction, direction.backward().apply(location)));
     private static final Moving left = ((direction, location) -> new CommandResponse(direction.turnLeft(), location));
     private static final Moving right = ((direction, location) -> new CommandResponse(direction.turnRight(), location));
   }
