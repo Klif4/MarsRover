@@ -21,7 +21,7 @@ public class MarsRover {
   }
 
   public void handleMove(Command command) {
-    Command.CommandResponse commandResponse = command.execute(direction, location);
+    Command.CommandResponse commandResponse = command.movingFunction().apply(direction, location);
     direction = commandResponse.direction;
     location = commandResponse.location;
   }
